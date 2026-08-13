@@ -1,0 +1,8 @@
+.text.active {
+  color: red;
+  font-weight: bold;
+}
+
+.hidden {
+  display: none;
+}
