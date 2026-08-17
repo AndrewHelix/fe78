@@ -6,36 +6,86 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="./style.css">
+  <style>
+    .container {
+      padding: 0.5rem;
+      max-width: 400px;
+      position: fixed;
+      right: 0;
+      bottom: 0;
+    }
+
+    .message {
+      display: flex;
+      align-items: start;
+      padding: 1rem;
+      margin-bottom: 0.5rem;
+      background-color: rgba(32, 38, 227, 0.4);
+      border-radius: 0.5rem;
+    }
+
+    .close {
+      padding: 0.25rem;
+      margin-left: 0.5rem;
+      background-color: rgba(232, 113, 113, 0.6);
+    }
+  </style>
 </head>
 
 <body>
-  <!-- <h1>Hello World!</h1>
-  <ul>
-    <li class="list-item">List item 1</li>
-    <li class="list-item">List item 2</li>
-    <li class="list-item" id="listItem3">List item 3</li>
-    <li class="list-item">List item 4</li>
-    <li class="list-item">List item 5</li>
-  </ul>
-  <input type="text" name="email">
-  <a href="example.com">for example</a> -->
+  <!-- <button onclick="alert('button clicked')">CLICK ME</button> -->
+  <!-- <button id="demo-button">CLICK ME</button>
+  <input id="input" type="text">
 
-  <h1>Lorem ipsum dolor sit amet consectetur.</h1>
-  <p>Lorem ipsum dolor sit amet <a role="button" href="#">consectetur</a> adipisicing elit. Quo, repudiandae. Eius quo
-    accusanti </p>
-  <div class="parent">
-    <ul>
-      <li>Lorem ipsum dolor sit amet.</li>
-      <li class="list-item some-my-class">Hic obcaecati eum esse nisi?</li>
-      <li id="listItem3">Quaerat aperiam aspernatur nobis fuga?</li>
-      <li>Quas enim modi nostrum labore.</li>
-      <li class="list-item">Cum, veritatis! Fuga, ad aliquid.</li>
-      <li class="list-item">Lorem ipsum dolor sit.</li>
-    </ul>
-  </div>
-  <p class="text">Lorem ipsum <b>dolor</b> sit amet, consectetur adipisicing elit. Deleniti, et.</p>
-  <a href="example.com" class="link" data-custom-id="123">for example</a>
-  <script src="./lesson23.js"></script>
+  <p></p>
+  <p></p>
+  <button id="buttonToggleContent">Show text</button>
+  <div id="content" class="content">
+    <h2>Введение в браузерные события</h2>
+    <p>Событие – это сигнал от браузера о том, что что-то произошло. Все DOM-узлы подают такие сигналы (хотя события
+      бывают и не </p>
+  </div> -->
+
+  <!-- <div class="outer">
+    outer
+    <div class="middle">
+      middle
+      <button class="inner">inner button</button>
+    </div>
+  </div> -->
+
+  <!-- <ul id="list">
+    <li>item 1</li>
+    <li>item 2</li>
+    <li>item 3
+
+      <p>
+        <button>for example</button>
+      </p>
+    </li>
+  </ul> -->
+  <!-- <div id="container" class="container">
+    <h2>Зачем использовать делегирование:</h2>
+    <div class="message">
+      Упрощает процесс инициализации и экономит память: не нужно вешать много обработчиков.
+      <button class="close">X</button>
+    </div>
+    <div class="message">
+      Меньше кода: при добавлении и удалении элементов не нужно ставить или снимать обработчики.
+      <button class="close">X</button>
+    </div>
+    <div class="message">
+      Удобство изменений DOM: можно массово добавлять или удалять элементы путём изменения innerHTML и ему подобных.
+      <button class="close">X</button>
+    </div>
+  </div> -->
+  <a href="google.com">some link</a>
+  <form>
+    form example
+    <input type="text">
+    <button type="submit">submit form</button>
+  </form>
+  <script src="./lesson24.js"></script>
 </body>
 
 </html>

@@ -6,3 +6,20 @@
 .hidden {
   display: none;
 }
+
+.content {
+  display: none;
+}
+
+.outer {
+  padding: 30px;
+}
+
+.middle {
+  padding: 30px;
+}
+
+.inner {
+  display: block;
+  padding: 20px;
+}

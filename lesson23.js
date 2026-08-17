@@ -244,3 +244,24 @@ links.forEach((href, index) => {
 // document.body.append(parentDiv);
 console.log(fragment);
 document.body.append(fragment);
+
+const createDomElement = (tag, options) => {
+  const newELement = document.createElement(tag);
+
+  if (options.className) {
+    newELement.classList.add(options.className);
+  }
+
+  if (options.textContent) {
+    newELement.textContent = options.textContent;
+  }
+};
+
+const spanContainer = createDomElement('span', {
+  className: 'text',
+  textContent: 'smao interesting news',
+});
+
+const divContainer = createDomElement('div', {
+  className: 'container',
+});
