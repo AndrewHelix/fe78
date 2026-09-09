@@ -23,3 +23,9 @@
   display: block;
   padding: 20px;
 }
+
+#posts {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
