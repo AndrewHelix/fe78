@@ -1,35 +1,36 @@
 import './App.css';
-import { Button } from './components/Button/Button';
+import { Counter, Posts, Search } from './lessons/lesson39';
 import { User } from './components/User/User';
+import { TabValue, type TabItem } from './components/Tabs/types';
+import { Tabs } from './components/Tabs/Tabs';
+import { useState } from 'react';
 
+const tabs: TabItem[] = [
+  { value: TabValue.All, label: 'All' },
+  { value: TabValue.Favorites, label: 'Favorites' },
+  { value: TabValue.Popular, label: 'Popular' },
+];
+
+const PostsPage = () => {
+  const [activeTab, setActiveTab] = useState(TabValue.All);
+
+  return (
+    <>
+      <Tabs items={tabs} activeTab={activeTab} onChange={setActiveTab} />
+      <Posts />
+    </>
+  );
+};
 function App() {
-  const handleClick = () => {
-    console.log('clicked');
-  };
-
   return (
     <>
       <header className="header">
         <User username="Artem Malkin" />
       </header>
       <main className="main">
-        <h1>Buttons</h1>
-        <Button content="Primary" variant="primary" onClick={handleClick} />
-        <Button content="Secondary" variant="secondary" onClick={handleClick} />
-        <Button
-          content="Secondary 2"
-          variant="secondary2"
-          isActive
-          onClick={handleClick}
-        />
-        <Button
-          content="Primary"
-          variant="primary"
-          isActive
-          onClick={() => {
-            console.log('not active');
-          }}
-        />
+        <Counter />
+        <Search />
+        <PostsPage />
       </main>
       <footer className="footer">footer</footer>
     </>
