@@ -6,7 +6,8 @@ type Props = {
   content: string;
   isActive?: boolean;
   variant: ButtonVariant;
-  onClick: () => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onClick: (arg: any) => void;
 };
 
 export const Button = ({ content, isActive, variant, onClick }: Props) => {

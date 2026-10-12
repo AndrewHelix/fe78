@@ -1,39 +1,36 @@
-import './App.css';
-import { Counter, Posts, Search } from './lessons/lesson39';
-import { User } from './components/User/User';
-import { TabValue, type TabItem } from './components/Tabs/types';
-import { Tabs } from './components/Tabs/Tabs';
+import { AppLayout } from './lessons/AppLayout';
+import { ThemeProvider } from 'styled-components';
 import { useState } from 'react';
+import { darkTheme, lightTheme } from './styles/theme';
+import { GlobalStyle } from './styles/GlobalStyle';
+import { RegistrationForm } from './components/Forms/RegistrationForm';
+import { RegistrationConfirmedPage } from './components/pages/RegistrationConfirmedPage';
 
-const tabs: TabItem[] = [
-  { value: TabValue.All, label: 'All' },
-  { value: TabValue.Favorites, label: 'Favorites' },
-  { value: TabValue.Popular, label: 'Popular' },
-];
-
-const PostsPage = () => {
-  const [activeTab, setActiveTab] = useState(TabValue.All);
-
-  return (
-    <>
-      <Tabs items={tabs} activeTab={activeTab} onChange={setActiveTab} />
-      <Posts />
-    </>
-  );
-};
 function App() {
+  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+  const [isRegistered, setIsRegistered] = useState(false);
+
+  const toggleTheme = () => {
+    setTheme((current) => (current === 'light' ? 'dark' : 'light'));
+  };
+
+  const currentTheme = theme === 'light' ? lightTheme : darkTheme;
+
   return (
-    <>
-      <header className="header">
-        <User username="Artem Malkin" />
-      </header>
-      <main className="main">
-        <Counter />
-        <Search />
-        <PostsPage />
-      </main>
-      <footer className="footer">footer</footer>
-    </>
+    <ThemeProvider theme={currentTheme}>
+      <GlobalStyle />
+
+      <AppLayout
+        title={isRegistered ? 'Registration confirmed' : 'Registration page'}
+        onToggleTheme={toggleTheme}
+      >
+        {isRegistered ? (
+          <RegistrationConfirmedPage />
+        ) : (
+          <RegistrationForm onSuccess={() => setIsRegistered(true)} />
+        )}
+      </AppLayout>
+    </ThemeProvider>
   );
 }
 
