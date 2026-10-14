@@ -5,6 +5,8 @@ import { darkTheme, lightTheme } from './styles/theme';
 import { GlobalStyle } from './styles/GlobalStyle';
 import { RegistrationForm } from './components/Forms/RegistrationForm';
 import { RegistrationConfirmedPage } from './components/pages/RegistrationConfirmedPage';
+import { Parent, Posts, User, UserWrapper } from './lessons/lesson41';
+import { LoginForm } from './components/Forms/LoginForm';
 
 function App() {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
@@ -24,11 +26,13 @@ function App() {
         title={isRegistered ? 'Registration confirmed' : 'Registration page'}
         onToggleTheme={toggleTheme}
       >
-        {isRegistered ? (
+        <Posts />
+        {/* <LoginForm onSuccess={() => {}} /> */}
+        {/* {isRegistered ? (
           <RegistrationConfirmedPage />
         ) : (
           <RegistrationForm onSuccess={() => setIsRegistered(true)} />
-        )}
+        )} */}
       </AppLayout>
     </ThemeProvider>
   );

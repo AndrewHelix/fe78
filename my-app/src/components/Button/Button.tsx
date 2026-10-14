@@ -8,9 +8,16 @@ type Props = {
   variant: ButtonVariant;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onClick: (arg: any) => void;
+  type?: 'button' | 'submit' | 'reset';
 };
 
-export const Button = ({ content, isActive, variant, onClick }: Props) => {
+export const Button = ({
+  content,
+  isActive,
+  variant,
+  onClick,
+  type,
+}: Props) => {
   return (
     <button
       className={`button button--${variant}`}
@@ -20,6 +27,7 @@ export const Button = ({ content, isActive, variant, onClick }: Props) => {
       //   color: 'white',
       //   padding: '20px',
       // }}
+      type={type || 'button'}
     >
       {content}
     </button>

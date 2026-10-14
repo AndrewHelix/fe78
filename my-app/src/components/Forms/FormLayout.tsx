@@ -1,17 +1,19 @@
 import styled from 'styled-components';
 import { Button } from '../Button/Button';
-import type { ReactNode, SyntheticEvent } from 'react';
+import type { ReactNode } from 'react';
 
 export const FormLayout = ({
   content,
   onClick,
+  buttonText,
   // additionalUI,
 }: {
   content: ReactNode;
+  buttonText: string;
   // additionalUI: ReactNode;
   onClick: () => void;
 }) => {
-  const handleClick = (e: SyntheticEvent) => {
+  const handleClick = (e: SubmitEvent) => {
     e.preventDefault();
     onClick();
   };
@@ -22,9 +24,10 @@ export const FormLayout = ({
       {/* {additionalUI} */}
       <Button
         onClick={handleClick}
-        content="Sign Up"
+        content={buttonText}
         isActive
         variant={'primary'}
+        type="submit"
       />
     </Root>
   );

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Field, InputSharedStyles, Label } from './shared';
+import type { ChangeEventHandler } from 'react';
 
 type InputType = 'text' | 'password' | 'email';
 
@@ -10,6 +11,8 @@ type Props = {
   id: string;
   placeholder: string;
   disabled?: boolean;
+  value: string;
+  onChange: ChangeEventHandler<HTMLInputElement, HTMLInputElement>;
 };
 
 export const Input = ({
@@ -19,6 +22,8 @@ export const Input = ({
   id,
   placeholder,
   disabled,
+  value,
+  onChange,
 }: Props) => {
   return (
     <Field>
@@ -29,6 +34,8 @@ export const Input = ({
         $hasError={!!error}
         placeholder={placeholder}
         disabled={disabled}
+        value={value}
+        onChange={onChange}
       />
       {error && <ErrorText>{error}</ErrorText>}
     </Field>

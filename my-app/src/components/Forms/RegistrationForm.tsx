@@ -33,6 +33,7 @@ export const RegistrationForm = ({ onSuccess }: { onSuccess: () => void }) => {
       }
       // additionalUI={<></>}
       onClick={handleClick}
+      buttonText="Sing Up"
     />
   );
 };
