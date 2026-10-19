@@ -1,7 +1,10 @@
 import { Input } from '../Input';
 import { FormLayout } from './FormLayout';
+import { usePageTitle } from '../../customHooks/usePageTitle';
 
 export const RegistrationForm = ({ onSuccess }: { onSuccess: () => void }) => {
+  usePageTitle('Registration');
+
   const handleClick = () => {
     onSuccess();
   };

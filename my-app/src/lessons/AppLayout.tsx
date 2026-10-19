@@ -1,22 +1,19 @@
-import type { ReactNode } from 'react';
+import { useContext, type ReactNode } from 'react';
 import styled from 'styled-components';
 import { User } from '../components/User/User';
 import { Button } from '../components/Button/Button';
+import { PageTitleContext } from '../context/pageTitleContext';
+import { useTheme } from '../customHooks/useTheme';
 
-export const AppLayout = ({
-  children,
-  title,
-  onToggleTheme,
-}: {
-  children: ReactNode;
-  title: string;
-  onToggleTheme: () => void;
-}) => {
+export const AppLayout = ({ children }: { children: ReactNode }) => {
+  const themeContext = useTheme();
+  const pageTitleContext = useContext(PageTitleContext);
+
   return (
     <Root>
       <Header>
         <User username="Artem Malkin" />
-        <button onClick={onToggleTheme}>toggle theme</button>
+        <button onClick={themeContext.toggleTheme}>toggle theme</button>
       </Header>
       <Main>
         <Button
@@ -25,7 +22,7 @@ export const AppLayout = ({
           onClick={() => {}}
           isActive
         />
-        <Title>{title}</Title>
+        <Title>{pageTitleContext?.title}</Title>
         {children}
       </Main>
       <Footer>footer</Footer>

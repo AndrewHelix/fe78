@@ -1,6 +1,9 @@
 import { Button } from '../Button/Button';
+import { usePageTitle } from '../../customHooks/usePageTitle';
 
 export const RegistrationConfirmedPage = () => {
+  usePageTitle('Registration Confirmation');
+
   return (
     <>
       <p>
