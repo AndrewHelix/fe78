@@ -1,11 +1,9 @@
-import { AppLayout } from './lessons/AppLayout';
 import { GlobalStyle } from './styles/GlobalStyle';
 import { AppThemeProvider } from './context/ThemeContextProvider';
 import { PageTitleContextProvider } from './context/PageTitleContextProvider';
-import { RegistrationForm } from './components/Forms/RegistrationForm';
-import { RegistrationConfirmedPage } from './components/pages/RegistrationConfirmedPage';
-import { DrillingExample, Modal } from './lessons/lesson42';
-import { useTheme } from './customHooks/useTheme';
+import { RouterProvider } from 'react-router/dom';
+import { router } from './router/router';
+import { AuthContextProvider } from './context/AuthContextProvider';
 
 function App() {
   return (
@@ -13,14 +11,9 @@ function App() {
       <GlobalStyle />
 
       <PageTitleContextProvider>
-        <AppLayout>
-          <Modal />
-          {/* <InputWithRef /> */}
-          {/* <Posts /> */}
-          {/* <LoginForm onSuccess={() => {}} /> */}
-          {/* <RegistrationConfirmedPage /> */}
-          {/* <RegistrationForm onSuccess={() => {}} /> */}
-        </AppLayout>
+        <AuthContextProvider>
+          <RouterProvider router={router} />
+        </AuthContextProvider>
       </PageTitleContextProvider>
     </AppThemeProvider>
   );
